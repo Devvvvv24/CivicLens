@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account — CivicLens</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <style>
+
+        .register-page {
+
+            min-height:
+                calc(100vh - 95px);
+
+            padding:
+                30px 4vw 60px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap:
+                40px;
+
+            max-width:
+                1500px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .register-form-side {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                40px;
+
+        }
+
+
+        .register-box {
+
+            width:
+                100%;
+
+            max-width:
+                450px;
+
+        }
+
+
+        .register-box h1 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                52px;
+
+            line-height:
+                1;
+
+            letter-spacing:
+                -0.055em;
+
+            font-weight:
+                500;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .register-subtitle {
+
+            color:
+                #72776f;
+
+            line-height:
+                1.7;
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                38px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom:
+                21px;
+
+        }
+
+
+        .form-group label {
+
+            display:
+                block;
+
+            margin-bottom:
+                9px;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                0.5px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .form-group input {
+
+            width:
+                100%;
+
+            padding:
+                16px 0;
+
+            border:
+                none;
+
+            border-bottom:
+                1px solid #b9bbb5;
+
+            background:
+                transparent;
+
+            outline:
+                none;
+
+            font-size:
+                15px;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color:
+                #111310;
+
+        }
+
+
+        .register-button {
+
+            width:
+                100%;
+
+            margin-top:
+                15px;
+
+            padding:
+                16px 22px;
+
+            border:
+                none;
+
+            border-radius:
+                100px;
+
+            background:
+                #111310;
+
+            color:
+                white;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .register-button:hover {
+
+            background:
+                #173d25;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        #message {
+
+            margin-top:
+                18px;
+
+            min-height:
+                22px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .success-message {
+
+            color:
+                #176b4d;
+
+        }
+
+
+        .error-message {
+
+            color:
+                #b42318;
+
+        }
+
+
+        .register-switch {
+
+            margin-top:
+                32px;
+
+            padding-top:
+                25px;
+
+            border-top:
+                1px solid #d5d4cc;
+
+            color:
+                #73776f;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .register-switch a {
+
+            color:
+                #111310;
+
+            font-weight:
+                800;
+
+            margin-left:
+                4px;
+
+        }
+
+
+        .register-visual {
+
+            background:
+                #111310;
+
+            color:
+                white;
+
+            border-radius:
+                24px;
+
+            min-height:
+                720px;
+
+            padding:
+                55px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                space-between;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .register-visual::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                600px;
+
+            height:
+                600px;
+
+            border:
+                1px solid #40443e;
+
+            border-radius:
+                50%;
+
+            right:
+                -280px;
+
+            top:
+                -240px;
+
+        }
+
+
+        .register-visual::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                380px;
+
+            height:
+                380px;
+
+            background:
+                #b7ef5d;
+
+            border-radius:
+                50%;
+
+            right:
+                -190px;
+
+            bottom:
+                -190px;
+
+        }
+
+
+        .visual-label {
+
+            color:
+                #b7ef5d;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                1.8px;
+
+            font-weight:
+                800;
+
+            z-index:
+                2;
+
+        }
+
+
+        .register-visual h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    58px,
+                    6vw,
+                    95px
+                );
+
+            line-height:
+                0.91;
+
+            letter-spacing:
+                -0.06em;
+
+            font-weight:
+                500;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .register-visual h2 span {
+
+            color:
+                #80847c;
+
+        }
+
+
+        .visual-features {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+            max-width:
+                560px;
+
+        }
+
+
+        .visual-feature {
+
+            border-top:
+                1px solid #3a3d38;
+
+            padding-top:
+                15px;
+
+        }
+
+
+        .visual-feature strong {
+
+            display:
+                block;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .visual-feature p {
+
+            color:
+                #929790;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        @media(max-width: 900px) {
+
+            .register-page {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .register-visual {
+
+                min-height:
+                    470px;
+
+                grid-row:
+                    1;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .register-page {
+
+                padding:
+                    15px 20px 50px;
+
+            }
+
+
+            .register-form-side {
+
+                padding:
+                    45px 5px;
+
+            }
+
+
+            .register-box h1 {
+
+                font-size:
+                    42px;
+
+            }
+
+
+            .register-visual {
+
+                padding:
+                    35px 28px;
+
+                min-height:
+                    440px;
+
+            }
+
+
+            .visual-features {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a
+            href="/"
+            class="brand"
+        >
+
+            <span class="brand-dot"></span>
+
+            CivicLens
+
+        </a>
+
+
+        <div class="nav-actions">
+
+            <span
+                style="
+                    font-size:12px;
+                    color:#73776f;
+                "
+            >
+                Already registered?
+            </span>
+
+
+            <a
+                href="/login"
+                class="nav-primary"
+            >
+                Log in
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<main class="register-page">
+
+
+    <!-- FORM -->
+
+    <section class="register-form-side">
+
+
+        <div class="register-box">
+
+
+            <p class="section-label">
+
+                JOIN CIVICLENS
+
+            </p>
+
+
+            <h1>
+
+                Create your
+                <br>
+                account.
+
+            </h1>
+
+
+            <p class="register-subtitle">
+
+                Start reporting civic issues and
+                help create a clearer picture of
+                what your city needs.
+
+            </p>
+
+
+
+            <form id="registerForm">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+
+                        YOUR NAME
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="email">
+
+                        EMAIL ADDRESS
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        PASSWORD
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        minlength="6"
+                        placeholder="Minimum 6 characters"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+
+                    <span>
+                        Create account
+                    </span>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <p id="message"></p>
+
+
+
+            <div class="register-switch">
+
+                Already have an account?
+
+                <a href="/login">
+
+                    Sign in
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- VISUAL -->
+
+    <section class="register-visual">
+
+
+        <div class="visual-label">
+
+            MAKE YOUR CITY VISIBLE.
+
+        </div>
+
+
+
+        <h2>
+
+            Notice it.
+            <br>
+
+            <span>
+                Report it.
+            </span>
+
+            <br>
+
+            Track it.
+
+        </h2>
+
+
+
+        <div class="visual-features">
+
+
+            <div class="visual-feature">
+
+                <strong>
+                    REPORT
+                </strong>
+
+                <p>
+                    Add photos, details and
+                    precise map locations.
+                </p>
+
+            </div>
+
+
+            <div class="visual-feature">
+
+                <strong>
+                    FOLLOW
+                </strong>
+
+                <p>
+                    Track your civic reports
+                    as their status changes.
+                </p>
+
+            </div>
+
+
+            <div class="visual-feature">
+
+                <strong>
+                    EXPLORE
+                </strong>
+
+                <p>
+                    See civic issues reported
+                    around the city.
+                </p>
+
+            </div>
+
+
+            <div class="visual-feature">
+
+                <strong>
+                    IMPROVE
+                </strong>
+
+                <p>
+                    Help build more responsive
+                    urban communities.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+
+    document
+        .getElementById(
+            "registerForm"
+        )
+        .addEventListener(
+            "submit",
+            async function(event) {
+
+
+                event.preventDefault();
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    );
+
+
+                message.className =
+                    "";
+
+
+                message.textContent =
+                    "Creating your account...";
+
+
+
+                const name =
+                    document
+                        .getElementById(
+                            "name"
+                        )
+                        .value;
+
+
+                const email =
+                    document
+                        .getElementById(
+                            "email"
+                        )
+                        .value;
+
+
+                const password =
+                    document
+                        .getElementById(
+                            "password"
+                        )
+                        .value;
+
+
+
+                try {
+
+
+                    const response =
+                        await fetch(
+                            "/api/auth/register",
+                            {
+
+                                method:
+                                    "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        {
+                                            name,
+                                            email,
+                                            password
+                                        }
+                                    )
+
+                            }
+                        );
+
+
+
+                    if (!response.ok) {
+
+
+                        message.className =
+                            "error-message";
+
+
+                        message.textContent =
+                            "Registration failed. This email may already be registered.";
+
+
+                        return;
+
+                    }
+
+
+
+                    message.className =
+                        "success-message";
+
+
+                    message.textContent =
+                        "Account created. Redirecting to login...";
+
+
+
+                    setTimeout(
+                        () => {
+
+                            window.location.href =
+                                "/login";
+
+                        },
+                        1100
+                    );
+
+
+                } catch (error) {
+
+
+                    console.error(
+                        error
+                    );
+
+
+                    message.className =
+                        "error-message";
+
+
+                    message.textContent =
+                        "Unable to connect to CivicLens.";
+
+
+                }
+
+
+            }
+        );
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login — CivicLens</title>
+
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <style>
+
+        .auth-page {
+
+            min-height:
+                calc(100vh - 95px);
+
+            padding:
+                30px 4vw 60px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.15fr 0.85fr;
+
+            gap:
+                40px;
+
+            max-width:
+                1500px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .auth-visual {
+
+            background:
+                #173d25;
+
+            color:
+                white;
+
+            border-radius:
+                24px;
+
+            padding:
+                55px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                space-between;
+
+            min-height:
+                720px;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .auth-visual::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                430px;
+
+            height:
+                430px;
+
+            border-radius:
+                50%;
+
+            background:
+                #b7ef5d;
+
+            right:
+                -170px;
+
+            bottom:
+                -170px;
+
+            opacity:
+                0.95;
+
+        }
+
+
+        .visual-label {
+
+            color:
+                #b7ef5d;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                1.8px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .auth-visual h1 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    58px,
+                    6vw,
+                    95px
+                );
+
+            line-height:
+                0.92;
+
+            letter-spacing:
+                -0.06em;
+
+            font-weight:
+                500;
+
+            max-width:
+                720px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .auth-visual h1 span {
+
+            color:
+                #88a889;
+
+        }
+
+
+        .visual-bottom {
+
+            max-width:
+                420px;
+
+            color:
+                #bccbbb;
+
+            line-height:
+                1.7;
+
+            font-size:
+                14px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .auth-form-side {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                40px;
+
+        }
+
+
+        .auth-box {
+
+            width:
+                100%;
+
+            max-width:
+                440px;
+
+        }
+
+
+        .auth-box h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                52px;
+
+            line-height:
+                1;
+
+            letter-spacing:
+                -0.055em;
+
+            font-weight:
+                500;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .auth-subtitle {
+
+            color:
+                #72776f;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                42px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .form-group label {
+
+            display:
+                block;
+
+            margin-bottom:
+                9px;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                0.5px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .form-group input {
+
+            width:
+                100%;
+
+            padding:
+                16px 0;
+
+            border:
+                none;
+
+            border-bottom:
+                1px solid #b9bbb5;
+
+            background:
+                transparent;
+
+            font-size:
+                15px;
+
+            outline:
+                none;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color:
+                #111310;
+
+        }
+
+
+        .login-button {
+
+            width:
+                100%;
+
+            margin-top:
+                18px;
+
+            padding:
+                16px 22px;
+
+            border:
+                none;
+
+            border-radius:
+                100px;
+
+            background:
+                #111310;
+
+            color:
+                white;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .login-button:hover {
+
+            background:
+                #173d25;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        #message {
+
+            margin-top:
+                18px;
+
+            min-height:
+                22px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .error-message {
+
+            color:
+                #b42318;
+
+        }
+
+
+        .auth-switch {
+
+            margin-top:
+                35px;
+
+            padding-top:
+                25px;
+
+            border-top:
+                1px solid #d5d4cc;
+
+            color:
+                #73776f;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .auth-switch a {
+
+            color:
+                #111310;
+
+            font-weight:
+                800;
+
+            margin-left:
+                4px;
+
+        }
+
+
+        @media(max-width: 900px) {
+
+            .auth-page {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .auth-visual {
+
+                min-height:
+                    450px;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .auth-page {
+
+                padding:
+                    15px 20px 50px;
+
+            }
+
+
+            .auth-visual {
+
+                padding:
+                    35px 28px;
+
+                min-height:
+                    390px;
+
+            }
+
+
+            .auth-form-side {
+
+                padding:
+                    45px 5px;
+
+            }
+
+
+            .auth-box h2 {
+
+                font-size:
+                    42px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a
+            href="/"
+            class="brand"
+        >
+
+            <span class="brand-dot"></span>
+
+            CivicLens
+
+        </a>
+
+
+        <div class="nav-actions">
+
+            <span
+                style="
+                    font-size:12px;
+                    color:#73776f;
+                "
+            >
+                New here?
+            </span>
+
+
+            <a
+                href="/register"
+                class="nav-primary"
+            >
+                Create account
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<main class="auth-page">
+
+
+    <!-- LEFT SIDE -->
+
+    <section class="auth-visual">
+
+
+        <div class="visual-label">
+
+            CIVIC PARTICIPATION,
+            SIMPLIFIED.
+
+        </div>
+
+
+        <h1>
+
+            Welcome
+            <br>
+
+            <span>
+                back to your
+            </span>
+
+            <br>
+
+            city.
+
+        </h1>
+
+
+        <p class="visual-bottom">
+
+            Sign in to report civic problems,
+            track your submissions and follow
+            their progress from report to resolution.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- LOGIN FORM -->
+
+    <section class="auth-form-side">
+
+
+        <div class="auth-box">
+
+
+            <p class="section-label">
+
+                MEMBER ACCESS
+
+            </p>
+
+
+            <h2>
+                Sign in.
+            </h2>
+
+
+            <p class="auth-subtitle">
+
+                Continue to your CivicLens account
+                and stay connected with the issues
+                around your city.
+
+            </p>
+
+
+
+            <form id="loginForm">
+
+
+                <div class="form-group">
+
+                    <label for="email">
+
+                        EMAIL ADDRESS
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        PASSWORD
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+
+                    <span>
+                        Sign in
+                    </span>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <p
+                id="message"
+                class="error-message"
+            ></p>
+
+
+
+            <div class="auth-switch">
+
+                Don't have a CivicLens account?
+
+                <a href="/register">
+
+                    Create one
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+
+    document
+        .getElementById("loginForm")
+        .addEventListener(
+            "submit",
+            async function(event) {
+
+
+                event.preventDefault();
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    );
+
+
+                message.textContent =
+                    "Signing in...";
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value;
+
+
+                const password =
+                    document
+                        .getElementById("password")
+                        .value;
+
+
+
+                try {
+
+
+                    const response =
+                        await fetch(
+                            "/api/auth/login",
+                            {
+
+                                method:
+                                    "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        {
+                                            email,
+                                            password
+                                        }
+                                    )
+
+                            }
+                        );
+
+
+
+                    if (!response.ok) {
+
+                        message.textContent =
+                            "Invalid email or password.";
+
+                        return;
+
+                    }
+
+
+
+                    const data =
+                        await response.json();
+
+
+
+                    localStorage.setItem(
+                        "token",
+                        data.token
+                    );
+
+
+                    localStorage.setItem(
+                        "role",
+                        data.role
+                    );
+
+
+                    if (data.name) {
+
+                        localStorage.setItem(
+                            "name",
+                            data.name
+                        );
+
+                    }
+
+
+
+                    message.textContent =
+                        "Login successful.";
+
+
+
+                    if (
+                        data.role ===
+                        "ADMIN"
+                    ) {
+
+                        window.location.href =
+                            "/admin";
+
+                    } else {
+
+                        window.location.href =
+                            "/";
+
+                    }
+
+
+                } catch (error) {
+
+
+                    console.error(error);
+
+
+                    message.textContent =
+                        "Unable to connect to CivicLens.";
+
+
+                }
+
+
+            }
+        );
+
+
+</script>
+
+
+</body>
+
+</html>

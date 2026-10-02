@@ -1,0 +1,24 @@
+
+# Java build files
+**/target/
+**/build/
+
+# Uploaded images
+**/uploads/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db

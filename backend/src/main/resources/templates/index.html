@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CivicLens — See your city clearly</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- CivicLens CSS -->
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="/" class="brand">
+
+            <span class="brand-dot"></span>
+
+            CivicLens
+
+        </a>
+
+
+        <div class="nav-center">
+
+            <a href="#map-section">
+                Live map
+            </a>
+
+            <a href="#how-it-works">
+                How it works
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+
+        <div
+            class="nav-actions"
+            id="navActions"
+        >
+
+            <a
+                href="/login"
+                class="nav-login"
+            >
+                Log in
+            </a>
+
+            <a
+                href="/register"
+                class="nav-primary"
+            >
+                Get started
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+
+<section class="hero">
+
+
+    <div class="hero-eyebrow">
+
+        <span class="eyebrow-dot"></span>
+
+        CIVIC INTELLIGENCE FOR BETTER CITIES
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+        Your city.
+
+        <span class="hero-muted">
+            Visible.
+        </span>
+
+        <br>
+
+        Your voice.
+
+        <span class="hero-accent">
+            Actionable.
+        </span>
+
+    </h1>
+
+
+    <div class="hero-bottom">
+
+
+        <p class="hero-description">
+
+            CivicLens helps citizens report real civic
+            problems, understand what is happening around
+            them and follow issues from report to resolution.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="/report"
+                class="button button-dark"
+            >
+                Report an issue
+
+                <span>
+                    ↗
+                </span>
+            </a>
+
+
+            <a
+                href="#map-section"
+                class="button button-light"
+            >
+                Explore the city
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="hero-line"></div>
+
+
+    <div class="hero-meta">
+
+        <div>
+            REAL REPORTS
+        </div>
+
+        <div>
+            LIVE LOCATIONS
+        </div>
+
+        <div>
+            AI-ASSISTED ANALYSIS
+        </div>
+
+        <div>
+            TRANSPARENT RESOLUTION
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="numbers-section">
+
+
+    <div class="section-number">
+        01
+    </div>
+
+
+    <div class="numbers-heading">
+
+        <p class="section-label">
+            CITY PULSE
+        </p>
+
+        <h2>
+            Understand what your
+            <br>
+            city needs.
+        </h2>
+
+    </div>
+
+
+    <div class="numbers-grid">
+
+
+        <div class="number-item">
+
+            <span
+                class="number"
+                id="openCount"
+            >
+                0
+            </span>
+
+            <p>
+                Open reports
+            </p>
+
+        </div>
+
+
+        <div class="number-item">
+
+            <span
+                class="number"
+                id="criticalCount"
+            >
+                0
+            </span>
+
+            <p>
+                Critical issues
+            </p>
+
+        </div>
+
+
+        <div class="number-item">
+
+            <span
+                class="number"
+                id="resolvedCount"
+            >
+                0
+            </span>
+
+            <p>
+                Issues resolved
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     LIVE MAP
+===================================================== -->
+
+<section
+    class="map-section"
+    id="map-section"
+>
+
+
+    <div class="map-header">
+
+
+        <div>
+
+            <p class="section-label light-label">
+                LIVE CIVIC MAP
+            </p>
+
+            <h2>
+                See what's happening
+                <br>
+                around the city.
+            </h2>
+
+        </div>
+
+
+        <div class="map-description">
+
+            Every marker represents a real report
+            submitted through CivicLens.
+
+            <div class="map-legend">
+
+                <span>
+                    <i class="legend-low"></i>
+                    Low
+                </span>
+
+                <span>
+                    <i class="legend-medium"></i>
+                    Medium
+                </span>
+
+                <span>
+                    <i class="legend-high"></i>
+                    High
+                </span>
+
+                <span>
+                    <i class="legend-critical"></i>
+                    Critical
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="map-frame">
+
+        <div class="map-topbar">
+
+            <div>
+
+                <span class="live-dot"></span>
+
+                LIVE ISSUE NETWORK
+
+            </div>
+
+            <div>
+                CIVICLENS MAP
+            </div>
+
+        </div>
+
+
+        <div id="map"></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section
+    class="process-section"
+    id="how-it-works"
+>
+
+
+    <div class="section-number">
+        02
+    </div>
+
+
+    <div class="process-intro">
+
+
+        <p class="section-label">
+            THE PROCESS
+        </p>
+
+
+        <h2>
+            From a problem on the street
+            <br>
+            to action that matters.
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="process-grid">
+
+
+        <article class="process-card">
+
+            <div class="process-index">
+                01
+            </div>
+
+            <div class="process-icon">
+                +
+            </div>
+
+            <h3>
+                Report
+            </h3>
+
+            <p>
+                Capture the issue, add a photo and
+                select its exact location on the map.
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card">
+
+            <div class="process-index">
+                02
+            </div>
+
+            <div class="process-icon">
+                ◉
+            </div>
+
+            <h3>
+                Analyze
+            </h3>
+
+            <p>
+                CivicLens will use AI to help identify
+                issue categories and support prioritization.
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card">
+
+            <div class="process-index">
+                03
+            </div>
+
+            <div class="process-icon">
+                ↗
+            </div>
+
+            <h3>
+                Track
+            </h3>
+
+            <p>
+                Citizens can follow their submitted
+                reports and see the latest status.
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card">
+
+            <div class="process-index">
+                04
+            </div>
+
+            <div class="process-icon">
+                ✓
+            </div>
+
+            <h3>
+                Resolve
+            </h3>
+
+            <p>
+                Administrators review reports, manage
+                progress and mark resolved problems.
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     AI / PRODUCT SECTION
+===================================================== -->
+
+<section
+    class="intelligence-section"
+    id="about"
+>
+
+
+    <div class="intelligence-left">
+
+
+        <p class="section-label light-label">
+            BUILT FOR SMARTER CITIES
+        </p>
+
+
+        <h2>
+
+            A clearer picture
+            <br>
+
+            <span>
+                of the problems
+            </span>
+
+            <br>
+            around us.
+
+        </h2>
+
+
+    </div>
+
+
+    <div class="intelligence-right">
+
+
+        <p>
+
+            Civic problems often become invisible because
+            information is fragmented. CivicLens brings
+            reports, locations, status and eventually
+            AI-assisted analysis into one system.
+
+        </p>
+
+
+        <a
+            href="/report"
+            class="text-link"
+        >
+            Submit your first report
+
+            <span>
+                ↗
+            </span>
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+
+    <p class="section-label">
+        YOUR CITY STARTS WITH YOU
+    </p>
+
+
+    <h2>
+
+        See something
+        <br>
+        that needs fixing?
+
+    </h2>
+
+
+    <a
+        href="/report"
+        class="cta-link"
+    >
+
+        Report it
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-brand">
+
+        <span class="brand-dot"></span>
+
+        CivicLens
+
+    </div>
+
+
+    <div class="footer-message">
+
+        Building more visible,
+        responsive and connected cities.
+
+    </div>
+
+
+    <div class="footer-small">
+
+        CIVICLENS © 2026
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     LEAFLET
+===================================================== -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+
+<script>
+
+
+    /*
+        ==============================================
+        NAVBAR LOGIN STATE
+        ==============================================
+    */
+
+
+    function updateNavbar() {
+
+        const token =
+            localStorage.getItem("token");
+
+
+        const role =
+            localStorage.getItem("role");
+
+
+        const navActions =
+            document.getElementById(
+                "navActions"
+            );
+
+
+        if (!token) {
+
+            return;
+
+        }
+
+
+        if (role === "ADMIN") {
+
+            navActions.innerHTML = `
+
+                <a
+                    href="/admin"
+                    class="nav-login"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-primary"
+                    onclick="logout()"
+                >
+                    Logout
+                </a>
+
+            `;
+
+        } else {
+
+            navActions.innerHTML = `
+
+                <a
+                    href="/issues"
+                    class="nav-login"
+                >
+                    My issues
+                </a>
+
+                <a
+                    href="/report"
+                    class="nav-primary"
+                >
+                    Report issue
+                </a>
+
+                <button
+                    class="nav-logout-icon"
+                    onclick="logout()"
+                    title="Logout"
+                >
+                    ↗
+                </button>
+
+            `;
+
+        }
+
+    }
+
+
+
+    function logout() {
+
+        localStorage.removeItem(
+            "token"
+        );
+
+        localStorage.removeItem(
+            "role"
+        );
+
+        localStorage.removeItem(
+            "name"
+        );
+
+
+        window.location.href =
+            "/";
+
+    }
+
+
+
+    updateNavbar();
+
+
+
+    /*
+        ==============================================
+        MAP
+        ==============================================
+    */
+
+
+    const map =
+        L.map(
+            "map",
+            {
+                zoomControl: false
+            }
+        )
+        .setView(
+            [28.6139, 77.2090],
+            11
+        );
+
+
+    L.control
+        .zoom(
+            {
+                position: "bottomright"
+            }
+        )
+        .addTo(map);
+
+
+
+    L.tileLayer(
+
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+
+        {
+            attribution:
+                "&copy; OpenStreetMap contributors"
+        }
+
+    ).addTo(map);
+
+
+
+    /*
+        ==============================================
+        MAP HELPERS
+        ==============================================
+    */
+
+
+    function severityColor(
+        severity
+    ) {
+
+        switch (severity) {
+
+            case "CRITICAL":
+                return "#ff4e42";
+
+            case "HIGH":
+                return "#ff8a34";
+
+            case "MEDIUM":
+                return "#e4c842";
+
+            default:
+                return "#63d471";
+        }
+
+    }
+
+
+
+    function formatText(
+        text
+    ) {
+
+        if (!text) {
+            return "";
+        }
+
+
+        return text.replaceAll(
+            "_",
+            " "
+        );
+
+    }
+
+
+
+    function escapeHtml(
+        value
+    ) {
+
+        if (value == null) {
+            return "";
+        }
+
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
+
+
+    /*
+        ==============================================
+        LOAD REAL CIVIC ISSUES
+        ==============================================
+    */
+
+
+    async function loadIssues() {
+
+
+        try {
+
+
+            const response =
+                await fetch(
+                    "/api/public/issues"
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load issues"
+                );
+
+            }
+
+
+            const issues =
+                await response.json();
+
+
+
+            let openCount = 0;
+
+            let criticalCount = 0;
+
+            let resolvedCount = 0;
+
+
+            const coordinates = [];
+
+
+
+            issues.forEach(
+                issue => {
+
+
+                    if (
+                        issue.status ===
+                        "RESOLVED"
+                    ) {
+
+                        resolvedCount++;
+
+                    } else {
+
+                        openCount++;
+
+                    }
+
+
+
+                    if (
+                        issue.severity ===
+                        "CRITICAL"
+                        &&
+                        issue.status !==
+                        "RESOLVED"
+                    ) {
+
+                        criticalCount++;
+
+                    }
+
+
+
+                    if (
+                        issue.latitude == null
+                        ||
+                        issue.longitude == null
+                    ) {
+
+                        return;
+
+                    }
+
+
+
+                    coordinates.push(
+                        [
+                            issue.latitude,
+                            issue.longitude
+                        ]
+                    );
+
+
+
+                    const color =
+                        severityColor(
+                            issue.severity
+                        );
+
+
+
+                    const marker =
+                        L.circleMarker(
+
+                            [
+                                issue.latitude,
+                                issue.longitude
+                            ],
+
+                            {
+
+                                radius: 9,
+
+                                color:
+                                    "#111111",
+
+                                weight: 2,
+
+                                fillColor:
+                                    color,
+
+                                fillOpacity:
+                                    1
+
+                            }
+
+                        )
+                        .addTo(map);
+
+
+
+                    marker.bindPopup(`
+
+                        <div class="custom-popup">
+
+                            <div class="popup-small">
+
+                                ISSUE #${issue.id}
+
+                            </div>
+
+
+                            <h3>
+
+                                ${escapeHtml(
+                                    formatText(
+                                        issue.type
+                                    )
+                                )}
+
+                            </h3>
+
+
+                            <p>
+
+                                ${escapeHtml(
+                                    issue.description
+                                )}
+
+                            </p>
+
+
+                            <div class="popup-row">
+
+                                <span>
+                                    Severity
+                                </span>
+
+                                <strong>
+
+                                    ${escapeHtml(
+                                        issue.severity
+                                    )}
+
+                                </strong>
+
+                            </div>
+
+
+                            <div class="popup-row">
+
+                                <span>
+                                    Status
+                                </span>
+
+                                <strong>
+
+                                    ${escapeHtml(
+                                        formatText(
+                                            issue.status
+                                        )
+                                    )}
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    `);
+
+
+                }
+            );
+
+
+
+            document
+                .getElementById(
+                    "openCount"
+                )
+                .textContent =
+                openCount;
+
+
+
+            document
+                .getElementById(
+                    "criticalCount"
+                )
+                .textContent =
+                criticalCount;
+
+
+
+            document
+                .getElementById(
+                    "resolvedCount"
+                )
+                .textContent =
+                resolvedCount;
+
+
+
+            if (
+                coordinates.length === 1
+            ) {
+
+                map.setView(
+                    coordinates[0],
+                    14
+                );
+
+            }
+
+
+
+            if (
+                coordinates.length > 1
+            ) {
+
+                map.fitBounds(
+                    coordinates,
+                    {
+                        padding:
+                            [70, 70]
+                    }
+                );
+
+            }
+
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Failed to load CivicLens issues:",
+                error
+            );
+
+
+        }
+
+    }
+
+
+
+    loadIssues();
+
+
+</script>
+
+
+</body>
+
+</html>

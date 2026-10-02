@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Issues — CivicLens</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <style>
+
+        body {
+            background: #f3f1ea;
+        }
+
+
+        .issues-page {
+
+            max-width: 1500px;
+
+            margin: auto;
+
+            padding: 65px 4vw 110px;
+
+        }
+
+
+        /* ===============================
+           HEADER
+        =============================== */
+
+
+        .issues-heading {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr 0.7fr;
+
+            gap: 60px;
+
+            align-items: end;
+
+            margin-bottom: 70px;
+
+        }
+
+
+        .issues-heading h1 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    60px,
+                    8vw,
+                    120px
+                );
+
+            line-height: 0.88;
+
+            letter-spacing:
+                -0.065em;
+
+            font-weight: 500;
+
+        }
+
+
+        .issues-heading h1 span {
+
+            color: #9c9e96;
+
+        }
+
+
+        .heading-right {
+
+            max-width: 420px;
+
+            color: #666b64;
+
+            line-height: 1.75;
+
+            font-size: 14px;
+
+        }
+
+
+
+        /* ===============================
+           STATS
+        =============================== */
+
+
+        .issue-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border-top:
+                1px solid #d5d4cc;
+
+            border-bottom:
+                1px solid #d5d4cc;
+
+            margin-bottom: 70px;
+
+        }
+
+
+        .stat-item {
+
+            padding: 28px;
+
+            border-right:
+                1px solid #d5d4cc;
+
+        }
+
+
+        .stat-item:last-child {
+
+            border-right: none;
+
+        }
+
+
+        .stat-number {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 56px;
+
+            letter-spacing:
+                -0.05em;
+
+            line-height: 1;
+
+        }
+
+
+        .stat-label {
+
+            margin-top: 10px;
+
+            color: #777b74;
+
+            font-size: 10px;
+
+            letter-spacing: 1.4px;
+
+            font-weight: 800;
+
+        }
+
+
+
+        /* ===============================
+           SECTION TOP
+        =============================== */
+
+
+        .section-top {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .section-top h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            letter-spacing:
+                -0.04em;
+
+        }
+
+
+        .new-report-button {
+
+            background: #111310;
+
+            color: white;
+
+            padding:
+                14px 22px;
+
+            border-radius:
+                100px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap: 25px;
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .new-report-button:hover {
+
+            background: #173d25;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+
+        /* ===============================
+           GRID
+        =============================== */
+
+
+        .issues-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(330px, 1fr)
+                );
+
+            gap: 22px;
+
+        }
+
+
+
+        /* ===============================
+           CARD
+        =============================== */
+
+
+        .issue-card {
+
+            background: #faf9f5;
+
+            border:
+                1px solid #d5d4cc;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .issue-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,0.06);
+
+        }
+
+
+        .issue-image {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            display: block;
+
+            background: #e8e7e1;
+
+        }
+
+
+        .no-image {
+
+            height: 230px;
+
+            background: #e8e7e1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            color: #8b8e87;
+
+            font-weight: 700;
+
+        }
+
+
+        .issue-content {
+
+            padding: 24px;
+
+        }
+
+
+        .issue-top {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 20px;
+
+            align-items:
+                flex-start;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .issue-number {
+
+            color: #8b8e87;
+
+            font-size: 9px;
+
+            letter-spacing: 1.4px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .issue-title {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 25px;
+
+            line-height: 1;
+
+            letter-spacing:
+                -0.035em;
+
+            font-weight: 500;
+
+        }
+
+
+
+        /* ===============================
+           STATUS
+        =============================== */
+
+
+        .status {
+
+            padding:
+                7px 10px;
+
+            border-radius:
+                100px;
+
+            font-size: 9px;
+
+            letter-spacing:
+                0.8px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+        }
+
+
+        .status-reported {
+
+            background: #f5edbd;
+
+            color: #665b13;
+
+        }
+
+
+        .status-assigned {
+
+            background: #dce9ff;
+
+            color: #244f91;
+
+        }
+
+
+        .status-progress {
+
+            background: #dedfff;
+
+            color: #43458c;
+
+        }
+
+
+        .status-resolved {
+
+            background: #d9f2d5;
+
+            color: #245c2c;
+
+        }
+
+
+        .status-rejected {
+
+            background: #f8d7d4;
+
+            color: #8f2820;
+
+        }
+
+
+
+        /* ===============================
+           DESCRIPTION
+        =============================== */
+
+
+        .issue-description {
+
+            color: #63675f;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            min-height: 66px;
+
+            margin-bottom: 23px;
+
+        }
+
+
+
+        /* ===============================
+           DETAILS
+        =============================== */
+
+
+        .details {
+
+            border-top:
+                1px solid #dddcd4;
+
+        }
+
+
+        .detail-row {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 20px;
+
+            padding:
+                12px 0;
+
+            border-bottom:
+                1px solid #e5e4de;
+
+            font-size: 11px;
+
+        }
+
+
+        .detail-row span {
+
+            color: #83877f;
+
+        }
+
+
+        .detail-row strong {
+
+            text-align: right;
+
+            font-weight: 700;
+
+        }
+
+
+
+        /* ===============================
+           SEVERITY
+        =============================== */
+
+
+        .severity-low {
+            color: #3e7c49;
+        }
+
+
+        .severity-medium {
+            color: #a0841a;
+        }
+
+
+        .severity-high {
+            color: #c26522;
+        }
+
+
+        .severity-critical {
+            color: #b42318;
+        }
+
+
+
+        /* ===============================
+           LOADING / EMPTY
+        =============================== */
+
+
+        .loading {
+
+            padding: 90px 20px;
+
+            text-align: center;
+
+            color: #767a73;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .empty-state {
+
+            grid-column: 1 / -1;
+
+            background: #173d25;
+
+            color: white;
+
+            padding:
+                75px 50px;
+
+            border-radius: 22px;
+
+        }
+
+
+        .empty-state h2 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    40px,
+                    5vw,
+                    72px
+                );
+
+            letter-spacing:
+                -0.055em;
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+        }
+
+
+        .empty-state p {
+
+            color: #aec0af;
+
+            max-width: 480px;
+
+            margin:
+                20px 0 32px;
+
+            line-height: 1.7;
+
+            font-size: 13px;
+
+        }
+
+
+        .empty-state a {
+
+            display: inline-flex;
+
+            background: #b7ef5d;
+
+            color: #111310;
+
+            padding:
+                14px 22px;
+
+            border-radius:
+                100px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            gap: 30px;
+
+        }
+
+
+
+        /* ===============================
+           RESPONSIVE
+        =============================== */
+
+
+        @media(max-width: 900px) {
+
+            .issues-heading {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .issue-stats {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .stat-item {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid #d5d4cc;
+
+            }
+
+
+            .stat-item:last-child {
+
+                border-bottom: none;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .issues-page {
+
+                padding:
+                    50px 20px 80px;
+
+            }
+
+
+            .issues-heading h1 {
+
+                font-size: 58px;
+
+            }
+
+
+            .section-top {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+            }
+
+
+            .new-report-button {
+
+                width: 100%;
+
+                justify-content:
+                    space-between;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+
+        <a
+            href="/"
+            class="brand"
+        >
+
+            <span class="brand-dot"></span>
+
+            CivicLens
+
+        </a>
+
+
+        <div class="nav-center">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/issues">
+                My issues
+            </a>
+
+            <a href="/report">
+                Report
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="nav-primary"
+                onclick="logout()"
+                style="border:none;"
+            >
+
+                Log out
+
+            </button>
+
+        </div>
+
+
+    </nav>
+
+</header>
+
+
+
+<main class="issues-page">
+
+
+    <!-- HEADER -->
+
+    <section class="issues-heading">
+
+
+        <div>
+
+            <p class="section-label">
+                YOUR CIVIC REPORTS
+            </p>
+
+
+            <h1>
+
+                What you've
+
+                <br>
+
+                <span>
+                    put on the map.
+                </span>
+
+            </h1>
+
+        </div>
+
+
+        <p class="heading-right">
+
+            Follow every issue you have reported.
+            See what's still waiting for action,
+            what's being worked on and what has
+            already been resolved.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- STATS -->
+
+    <section class="issue-stats">
+
+
+        <div class="stat-item">
+
+            <div
+                class="stat-number"
+                id="totalCount"
+            >
+                0
+            </div>
+
+            <div class="stat-label">
+                TOTAL REPORTS
+            </div>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <div
+                class="stat-number"
+                id="activeCount"
+            >
+                0
+            </div>
+
+            <div class="stat-label">
+                ACTIVE ISSUES
+            </div>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <div
+                class="stat-number"
+                id="resolvedCount"
+            >
+                0
+            </div>
+
+            <div class="stat-label">
+                RESOLVED
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- LIST HEADER -->
+
+    <section class="section-top">
+
+
+        <h2>
+            Your reports
+        </h2>
+
+
+        <a
+            href="/report"
+            class="new-report-button"
+        >
+
+            New report
+
+            <span>
+                ↗
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+
+    <div
+        id="loading"
+        class="loading"
+    >
+
+        LOADING YOUR REPORTS...
+
+    </div>
+
+
+
+    <section
+        id="issuesGrid"
+        class="issues-grid"
+    >
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+
+    const token =
+        localStorage.getItem(
+            "token"
+        );
+
+
+    if (!token) {
+
+        window.location.href =
+            "/login";
+
+    }
+
+
+
+    function escapeHtml(value) {
+
+        if (value == null) {
+            return "";
+        }
+
+
+        return String(value)
+
+            .replaceAll("&", "&amp;")
+
+            .replaceAll("<", "&lt;")
+
+            .replaceAll(">", "&gt;")
+
+            .replaceAll('"', "&quot;")
+
+            .replaceAll("'", "&#039;");
+
+    }
+
+
+
+    function formatText(text) {
+
+        if (!text) {
+            return "";
+        }
+
+
+        return text.replaceAll(
+            "_",
+            " "
+        );
+
+    }
+
+
+
+    function formatDate(date) {
+
+        if (!date) {
+            return "Unknown";
+        }
+
+
+        return new Date(
+            date
+        ).toLocaleString();
+
+    }
+
+
+
+    function statusClass(status) {
+
+
+        switch (status) {
+
+
+            case "REPORTED":
+
+                return "status-reported";
+
+
+            case "ASSIGNED":
+
+                return "status-assigned";
+
+
+            case "IN_PROGRESS":
+
+                return "status-progress";
+
+
+            case "RESOLVED":
+
+                return "status-resolved";
+
+
+            case "REJECTED":
+
+                return "status-rejected";
+
+
+            default:
+
+                return "status-reported";
+
+        }
+
+    }
+
+
+
+    function severityClass(severity) {
+
+
+        switch (severity) {
+
+
+            case "LOW":
+
+                return "severity-low";
+
+
+            case "MEDIUM":
+
+                return "severity-medium";
+
+
+            case "HIGH":
+
+                return "severity-high";
+
+
+            case "CRITICAL":
+
+                return "severity-critical";
+
+
+            default:
+
+                return "";
+
+        }
+
+    }
+
+
+
+    function updateStatistics(
+        issues
+    ) {
+
+
+        const total =
+            issues.length;
+
+
+        const resolved =
+            issues.filter(
+                issue =>
+                    issue.status ===
+                    "RESOLVED"
+            ).length;
+
+
+        const active =
+            issues.filter(
+                issue =>
+                    issue.status !==
+                    "RESOLVED"
+                    &&
+                    issue.status !==
+                    "REJECTED"
+            ).length;
+
+
+
+        document
+            .getElementById(
+                "totalCount"
+            )
+            .textContent =
+            total;
+
+
+
+        document
+            .getElementById(
+                "activeCount"
+            )
+            .textContent =
+            active;
+
+
+
+        document
+            .getElementById(
+                "resolvedCount"
+            )
+            .textContent =
+            resolved;
+
+    }
+
+
+
+    async function loadMyIssues() {
+
+
+        const loading =
+            document.getElementById(
+                "loading"
+            );
+
+
+        const grid =
+            document.getElementById(
+                "issuesGrid"
+            );
+
+
+        try {
+
+
+            const response =
+                await fetch(
+                    "/api/issues/my",
+                    {
+
+                        headers: {
+
+                            "Authorization":
+                                "Bearer "
+                                + token
+
+                        }
+
+                    }
+                );
+
+
+
+            if (
+                response.status === 401
+                ||
+                response.status === 403
+            ) {
+
+
+                localStorage.clear();
+
+
+                window.location.href =
+                    "/login";
+
+
+                return;
+
+            }
+
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load reports"
+                );
+
+            }
+
+
+
+            const issues =
+                await response.json();
+
+
+
+            loading.style.display =
+                "none";
+
+
+
+            updateStatistics(
+                issues
+            );
+
+
+
+            if (
+                issues.length === 0
+            ) {
+
+
+                grid.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <p class="section-label"
+                           style="color:#b7ef5d;">
+
+                            NOTHING HERE YET
+
+                        </p>
+
+
+                        <h2>
+
+                            Your city is
+                            <br>
+                            waiting for
+                            <br>
+                            your first report.
+
+                        </h2>
+
+
+                        <p>
+
+                            When you report a civic issue,
+                            you'll be able to follow its
+                            status and progress from this page.
+
+                        </p>
+
+
+                        <a href="/report">
+
+                            Report an issue
+
+                            <span>
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+
+            issues.forEach(
+                issue => {
+
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "issue-card";
+
+
+
+                    let imageHtml;
+
+
+                    if (issue.imageUrl) {
+
+
+                        imageHtml = `
+
+                            <img
+                                src="${escapeHtml(
+                                    issue.imageUrl
+                                )}"
+                                class="issue-image"
+                                alt="Reported civic issue"
+                            >
+
+                        `;
+
+
+                    } else {
+
+
+                        imageHtml = `
+
+                            <div class="no-image">
+
+                                NO IMAGE AVAILABLE
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+
+                    const latitude =
+
+                        issue.latitude != null
+
+                        ? Number(
+                            issue.latitude
+                        ).toFixed(5)
+
+                        : "Unknown";
+
+
+
+                    const longitude =
+
+                        issue.longitude != null
+
+                        ? Number(
+                            issue.longitude
+                        ).toFixed(5)
+
+                        : "Unknown";
+
+
+
+                    card.innerHTML = `
+
+
+                        ${imageHtml}
+
+
+                        <div class="issue-content">
+
+
+                            <div class="issue-top">
+
+
+                                <div>
+
+
+                                    <div class="issue-number">
+
+                                        ISSUE #${issue.id}
+
+                                    </div>
+
+
+                                    <div class="issue-title">
+
+                                        ${escapeHtml(
+                                            formatText(
+                                                issue.type
+                                            )
+                                        )}
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <span
+                                    class="
+                                        status
+                                        ${statusClass(
+                                            issue.status
+                                        )}
+                                    "
+                                >
+
+                                    ${escapeHtml(
+                                        formatText(
+                                            issue.status
+                                        )
+                                    )}
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <p class="issue-description">
+
+                                ${escapeHtml(
+                                    issue.description
+                                )}
+
+                            </p>
+
+
+
+                            <div class="details">
+
+
+                                <div class="detail-row">
+
+                                    <span>
+                                        Severity
+                                    </span>
+
+
+                                    <strong
+                                        class="${severityClass(
+                                            issue.severity
+                                        )}"
+                                    >
+
+                                        ${escapeHtml(
+                                            issue.severity
+                                        )}
+
+                                    </strong>
+
+                                </div>
+
+
+
+                                <div class="detail-row">
+
+                                    <span>
+                                        Reported
+                                    </span>
+
+
+                                    <strong>
+
+                                        ${escapeHtml(
+                                            formatDate(
+                                                issue.createdAt
+                                            )
+                                        )}
+
+                                    </strong>
+
+                                </div>
+
+
+
+                                <div class="detail-row">
+
+                                    <span>
+                                        Location
+                                    </span>
+
+
+                                    <strong>
+
+                                        ${latitude},
+                                        ${longitude}
+
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    `;
+
+
+
+                    grid.appendChild(
+                        card
+                    );
+
+
+                }
+            );
+
+
+        } catch (error) {
+
+
+            console.error(
+                error
+            );
+
+
+            loading.textContent =
+                "UNABLE TO LOAD YOUR REPORTS";
+
+
+        }
+
+    }
+
+
+
+    function logout() {
+
+
+        localStorage.removeItem(
+            "token"
+        );
+
+
+        localStorage.removeItem(
+            "role"
+        );
+
+
+        localStorage.removeItem(
+            "name"
+        );
+
+
+        window.location.href =
+            "/login";
+
+    }
+
+
+
+    loadMyIssues();
+
+
+</script>
+
+
+</body>
+
+</html>
